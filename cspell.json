@@ -1,0 +1,32 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "words": [
+    "typeof",
+    "cnpm",
+    "tyarn",
+    "globby",
+    "umijs",
+    "eslintignore",
+    "editorconfig",
+    "commitlint",
+    "prettierignore",
+    "prettierrc",
+    "commitlintrc",
+    "followtags",
+    "ycli",
+    "yunfly",
+    "yunflyjs",
+    "Keygrip",
+    "YUNFLYJS",
+  ],
+  "ignorePaths": [
+    "package.json",
+    "node_modules/**",
+    "dist/**",
+    "**/*.snap",
+    "coverage/**",
+    ".eslintrc.js",
+    "cspell.json"
+  ]
+}

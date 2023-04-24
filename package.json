@@ -1,0 +1,80 @@
+{
+  "name": "@yunflyjs/yunfly-plugin-fast-jwt",
+  "version": "0.0.0",
+  "main": "./dist/app.js",
+  "typings": "dist/app.d.ts",
+  "repository": "https://github.com/yunke-yunfly/yunfly-plugin-fast-jwt",
+  "description": "yunfly fast-jwt plugin.",
+  "scripts": {
+    "build": "gts clean && tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "test": "umi-test --passWithNoTests",
+    "test:watch": "umi-test --watch",
+    "test:coverage": "umi-test --coverage",
+    "ci": "yarn tsc --noEmit && yarn spell-check:all",
+    "lint:all": "yarn eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "spell-check:all": "cspell \"**/*.{txt,ts,tsx,js,json,md}\"",
+    "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
+    "setPushFollowTags": "echo '本地项目设置git push代码时自动push tag' && git config push.followtags true",
+    "version:pre": "echo '发布预发布beta版本' && cross-env HUSKY_SKIP_HOOKS=1 standard-version --prerelease",
+    "version:patch": "echo '发布补丁版本' && cross-env HUSKY_SKIP_HOOKS=1 standard-version --release-as patch",
+    "version:minor": "echo '发布小版本' && cross-env HUSKY_SKIP_HOOKS=1 standard-version --release-as minor",
+    "version:major": "echo '发布主版本' && cross-env HUSKY_SKIP_HOOKS=1 standard-version --release-as major"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn setPushFollowTags && yarn spell-check:all",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,json}": [
+      "prettier --write",
+      "cspell --no-must-find-files"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix "
+    ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-angular": "^12.1.4",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "@umijs/test": "^3.5.4",
+    "@yunflyjs/yunfly": "^0.0.1-beta.15",
+    "cross-env": "^7.0.3",
+    "cspell": "^5.6.6",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "gts": "^3.1.0",
+    "husky": "4.3.8",
+    "koa": "^2.13.1",
+    "lint-staged": "10.5.4",
+    "prettier": "^2.3.2",
+    "prettier-plugin-jsdoc": "^0.3.23",
+    "prettier-plugin-sorted": "^2.0.0",
+    "standard-version": "^9.3.1",
+    "typescript": "^4.3.4"
+  },
+  "license": "Apache",
+  "dependencies": {
+    "cookie": "^0.4.1",
+    "fast-jwt": "^2.2.1",
+    "ms": "^2.1.3"
+  }
+}
