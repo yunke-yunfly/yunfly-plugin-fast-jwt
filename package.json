@@ -1,6 +1,6 @@
 {
   "name": "@yunflyjs/yunfly-plugin-fast-jwt",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "./dist/app.js",
   "typings": "dist/app.d.ts",
   "repository": "https://github.com/yunke-yunfly/yunfly-plugin-fast-jwt",
